@@ -33,3 +33,8 @@ output "url_list_ids" {
   description = "Identifiers of the secure web proxy url lists."
   value       = { for list_name, _ in var.url_lists : list_name => google_network_security_url_lists.this[list_name].id }
 }
+
+output "proxy_ip_address" {
+  description = "Proxy ip address assigned to the secure web proxy inside the subnet"
+  value = google_network_services_gateway.this.addresses[0]
+}
