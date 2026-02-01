@@ -44,6 +44,7 @@ variable "scope" {
 variable "certificate_urls" {
   type        = list(string)
   description = "A fully-qualified certificates URL reference. The proxy presents a Certificate (selected based on SNI) when establishing a TLS connection."
+  default = []
 }
 
 variable "network" {
