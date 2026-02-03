@@ -26,8 +26,8 @@ resource "google_network_services_gateway" "this" {
   scope                                = var.scope != "" ? var.scope : var.region
   certificate_urls                     = var.certificate_urls
   gateway_security_policy              = google_network_security_gateway_security_policy.this.id
-  network                              = var.network
-  subnetwork                           = var.subnetwork
+  network                              = "projects/${var.project_id}/global/networks/${var.network}"
+  subnetwork                           = "projects/${var.project_id}/regions/${var.region}/subnetworks/${var.subnetwork}"
   delete_swg_autogen_router_on_destroy = var.delete_swg_autogen_router_on_destroy
 }
 
